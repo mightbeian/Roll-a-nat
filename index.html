@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll-a-nat - Dice Roller</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎲 Roll-a-nat</h1>
+            <p class="subtitle">Your friendly neighborhood dice roller</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Coin Flip -->
+            <section class="roller-section">
+                <h2>Coin Flip</h2>
+                <button class="roll-btn coin-btn" onclick="flipCoin()">Flip Coin</button>
+                <div id="coin-result" class="result"></div>
+            </section>
+
+            <!-- Quick Dice -->
+            <section class="roller-section">
+                <h2>Quick Roll</h2>
+                <div class="quick-dice">
+                    <button class="dice-btn" onclick="rollDice(4)">d4</button>
+                    <button class="dice-btn" onclick="rollDice(6)">d6</button>
+                    <button class="dice-btn" onclick="rollDice(8)">d8</button>
+                    <button class="dice-btn" onclick="rollDice(10)">d10</button>
+                    <button class="dice-btn" onclick="rollDice(12)">d12</button>
+                    <button class="dice-btn" onclick="rollDice(20)">d20</button>
+                    <button class="dice-btn" onclick="rollDice(100)">d100</button>
+                </div>
+                <div id="quick-result" class="result"></div>
+            </section>
+
+            <!-- D&D Common Rolls -->
+            <section class="roller-section">
+                <h2>D&D Common Rolls</h2>
+                <div class="dnd-rolls">
+                    <button class="dnd-btn" onclick="rollMultiple(6, 3)">Ability Score (3d6)</button>
+                    <button class="dnd-btn" onclick="rollMultiple(6, 4, true)">Ability Score (4d6 drop lowest)</button>
+                    <button class="dnd-btn" onclick="rollMultiple(20, 1, false, 'advantage')">Advantage (2d20 highest)</button>
+                    <button class="dnd-btn" onclick="rollMultiple(20, 1, false, 'disadvantage')">Disadvantage (2d20 lowest)</button>
+                    <button class="dnd-btn" onclick="rollMultiple(6, 1)">Damage (1d6)</button>
+                    <button class="dnd-btn" onclick="rollMultiple(8, 2)">Damage (2d8)</button>
+                </div>
+                <div id="dnd-result" class="result"></div>
+            </section>
+
+            <!-- Custom Roll -->
+            <section class="roller-section">
+                <h2>Custom Roll</h2>
+                <div class="custom-roll">
+                    <input type="number" id="num-dice" min="1" max="100" value="1" placeholder="# of dice">
+                    <span class="separator">d</span>
+                    <input type="number" id="dice-sides" min="2" max="1000" value="20" placeholder="sides">
+                    <input type="number" id="modifier" value="0" placeholder="+/- modifier">
+                    <button class="roll-btn" onclick="customRoll()">Roll</button>
+                </div>
+                <div id="custom-result" class="result"></div>
+            </section>
+
+            <!-- Roll History -->
+            <section class="roller-section history-section">
+                <div class="history-header">
+                    <h2>Roll History</h2>
+                    <button class="clear-btn" onclick="clearHistory()">Clear</button>
+                </div>
+                <div id="history" class="history"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
